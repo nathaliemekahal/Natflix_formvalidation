@@ -102,7 +102,7 @@ import ValidationComponent from './ValidationComponent'
                 <Form.Group htmlFor="Password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" id="Password" onChange={this.updateRegestrationField}required/>
-                    {this.state.registration.Password.length<=6&&<ValidationComponent msg='this mensaje'/>}
+                    {this.state.registration.Password.length<=6&&<ValidationComponent msg='este mensaje'/>}
                 </Form.Group>
                 
                 

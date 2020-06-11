@@ -1,21 +1,29 @@
 import React, { Component } from "react";
 import { Container, Row, Col, DropdownButton, Dropdown } from "react-bootstrap";
 import Gallery from "./Gallery";
+import MyCarousel from "./MyCarousel"
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayGallery: true,
-    };
-  }
+class Home extends React.Component {
 
-  componentDidMount() {
-    // console.log("componentDidMount");
+   state = {
+      transformers: []
+   }
+
+  componentDidMount=async()=> {
+    let response = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=8ad00066 &s='  + 'transformers')
+    
+    let data= await response.json()
+    console.log('data',data.Search)
+    let transformers=data.Search
+   console.log(transformers)
+   
+    this.setState({transformers})
+    
+    console.log('state',this.state.transformers)
   }
 
   render() {
-    // console.log("render method");
+
     return (
       <Container fluid className="px-4">
         <Row className="justify-content-between mb-4">
@@ -42,7 +50,17 @@ class Home extends Component {
             <i className="fa fa-th-large icons mr-2"></i>
             <i className="fa fa-th icons mr-4"></i>
           </div>
+      
         </Row>
+        
+     
+
+           
+       <div>
+       <MyCarousel movies={this.state.transformers}/>
+       </div>
+            
+         
 
         {/* <Gallery title={title} imageSrc={"/assets/image.jpg"}>
 
@@ -57,15 +75,9 @@ class Home extends Component {
 
         <Gallery /> */}
 
-        {this.state.displayGallery && (
-          <div>
-            {/* This Gallery will not receive props.title inside, only props.imageSrc */}
-            <Gallery imageSrc="/assets/6.png" />
-
-            <Gallery title="Trending" imageSrc="/assets/8.png" />
-            <Gallery title="Horror" imageSrc="/assets/7.png" />
-          </div>
-        )}
+       
+       
+     
       </Container>
     );
   }
