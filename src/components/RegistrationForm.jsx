@@ -84,9 +84,10 @@ import ValidationComponent from './ValidationComponent'
                     <Form.Label>name</Form.Label>
                     <Form.Control
                      type="text" 
-                     placeholder="name" 
+                     placeholder="name"              
                      id="name" 
                      onChange={this.updateRegestrationField}
+                    
                     required/>
                     <div id="name-validation"className="form-validation is-invalid d-none">Input Invalid: Name should contain at least two characters</div>
                 </Form.Group>

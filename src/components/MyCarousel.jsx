@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import {Container,Image} from'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 const responsive = {
     desktop:{
@@ -37,7 +38,7 @@ const responsive = {
                 {this.props.movies.map(movie =>{
                     return(
                     <div>
-                        <Image src={movie.Poster}/>
+                        <Link to={'/Details/'+movie.imdbID}><Image src={movie.Poster}/></Link>
                     </div>
                     )
                 })}

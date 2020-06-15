@@ -6,20 +6,20 @@ import MyCarousel from "./MyCarousel"
 class Home extends React.Component {
 
    state = {
-      transformers: []
+      HarryPotter: []
    }
 
   componentDidMount=async()=> {
-    let response = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=8ad00066 &s='  + 'transformers')
+    let response = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=8ad00066 &s='  + 'Harry%20Potter')
     
     let data= await response.json()
-    console.log('data',data.Search)
-    let transformers=data.Search
-   console.log(transformers)
+    // console.log('data',data.Search)
+    let HarryPotter=data.Search
+   console.log(HarryPotter)
    
-    this.setState({transformers})
+    this.setState({HarryPotter})
     
-    console.log('state',this.state.transformers)
+    // console.log('state',this.state.transformers)
   }
 
   render() {
@@ -57,7 +57,7 @@ class Home extends React.Component {
 
            
        <div>
-       <MyCarousel movies={this.state.transformers}/>
+       <MyCarousel movies={this.state.HarryPotter}/>
        </div>
             
          
